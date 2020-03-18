@@ -8,7 +8,7 @@ using CsvHelper;
 
 namespace HadamardWienerFilter
 {
-    internal struct HadamardResult
+    public struct HadamardResult
     {
         public MathNet.Numerics.LinearAlgebra.Vector<Complex> TransmissionVectorEstimated { get; set; }
         public MathNet.Numerics.LinearAlgebra.Vector<Complex> SLMPatternOptimized { get; set; }
@@ -17,5 +17,8 @@ namespace HadamardWienerFilter
         public MathNet.Numerics.LinearAlgebra.Vector<double> ReSigma { get; set; }
         public MathNet.Numerics.LinearAlgebra.Vector<Complex> Zeta { get; set; }
         public int CorrectSignsNumber { get; set; }
+        public double Enhancement { get; set; }
+        public double OptimizedIntensity { get; set; }
+        public bool ZeroInitialIntensity { get; set; }
     }
 }
