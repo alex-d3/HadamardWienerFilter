@@ -33,23 +33,23 @@ namespace HadamardWienerFilter
         {
             //int slm_size = 256;
             //int t_vecs_count = 1024;
-            int slm_size = 64;
-            int t_vecs_count = 512;
+            int slm_size = 64; // Set the number of the SLM channels
+            int t_vecs_count = 512; // Set the number of transmission vectors for the filter calculation
             // SLM: 64, TVEC: 512
             // SLM: 128, TVEC: 1024
             // SLM: 256, TVEC: 2048
             // SLM: 512, TVEC: 4096
-            Complex e_field = new Complex(1.0, 0.0);
+            Complex e_field = new Complex(1.0, 0.0); // Incident electric field
             double wavelength = 632.8e-9;
             //Complex e_inc = new Complex(1.0 / Math.Sqrt(2.0), 0.0);
-            double e_inc_factor = 1.0 / 4.0;
+            double e_inc_factor = 1.0 / 4.0; // Factor that increases or decreases incident intensity
             Complex e_inc = new Complex(1.0 * Math.Sqrt(e_inc_factor), 0.0);
 
             int det_rows = 1, det_cols = 1;
             double temperature = 325.15;
             //double pga_gain = 2.0;
             //double integration_time = 0.035;
-            double pga_gain = 1.0 * 4.0;
+            double pga_gain = 1.0 * 4.0; // Gain of the image sensor
             double integration_time = 1.0 / 25.0;//0.040 / 128.0;
 
             // Maximum photon shot noise without the influence of dark current
@@ -64,9 +64,9 @@ namespace HadamardWienerFilter
 
             double planck_const = 6.62607004e-34;
             double light_speed = 299792458.0;
-            double ph_energy = planck_const * light_speed / wavelength;
+            double ph_energy = planck_const * light_speed / wavelength; // Photon energy
             double poynting_vec = e_inc.MagnitudeSquared() / (2.0 * 377);
-            double ph_flux = poynting_vec / ph_energy;
+            double ph_flux = poynting_vec / ph_energy; // Photon flux
 
             double q_eff = 0.8;
             double det_area = 5.0e-6 * 5.0e-6;
